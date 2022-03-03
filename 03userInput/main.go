@@ -16,4 +16,5 @@ func main() {
 	//comma ok / comma err syntax
 	input, _ := reader.ReadString('\n')
 	fmt.Println("Your name is, ", input)
+	fmt.Printf("This input type is %T ", input)
 }
