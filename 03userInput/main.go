@@ -7,14 +7,31 @@ import (
 )
 
 func main() {
-	message := "user input"
+	message := "User sign up"
 	fmt.Println(message)
 
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("enter your name: ")
+	usernameRegistrationReader := bufio.NewReader(os.Stdin)
+	passwordRegistrationReader := bufio.NewReader(os.Stdin)
+	usernameLoginReader := bufio.NewReader(os.Stdin)
+	passwordLoginReader := bufio.NewReader(os.Stdin)
 
+	fmt.Println("enter your name: ")
 	//comma ok / comma err syntax
-	input, _ := reader.ReadString('\n')
-	fmt.Println("Your name is, ", input)
-	fmt.Printf("This input type is %T ", input)
+	usernameRegistration, _ := usernameRegistrationReader.ReadString('\n')
+
+	fmt.Println("enter your password")
+	passwordRegistration, _ := passwordRegistrationReader.ReadString('\n')
+
+	fmt.Println("Thank you for signing up. You can now login")
+
+	fmt.Println("enter your username to login ")
+	usernameLogin, _ := usernameLoginReader.ReadString('\n')
+	fmt.Println("enter your password ")
+	passwordLogin, _ := passwordLoginReader.ReadString('\n')
+
+	if usernameRegistration == usernameLogin && passwordRegistration == passwordLogin {
+		fmt.Println("Succefully loged in. Welcome ", usernameRegistration)
+	} else {
+		fmt.Println("Incorrect password or username")
+	}
 }
